@@ -106,5 +106,7 @@ iOSInjectionProject/
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 secrets.plist
+*/secrets.plist
+**/secrets.plist
 
 # End of https://www.toptal.com/developers/gitignore/api/xcode,swift,cocoapods
