@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import NewsApi
+
 
 final class NewsApiUITests: XCTestCase {
 
