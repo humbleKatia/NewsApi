@@ -35,24 +35,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4A1DEE8C2E6323B30033365C /* Exceptions for "NewsApi" folder in "NewsApi" target */ = {
+		4AF9BEE22E8CA05100DE6C9B /* Exceptions for "NewsApi" folder in "NewsApi" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = 4A1DEE222E63058E0033365C /* NewsApi */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4A1DEE252E63058E0033365C /* NewsApi */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				4A1DEE8C2E6323B30033365C /* Exceptions for "NewsApi" folder in "NewsApi" target */,
-			);
-			path = NewsApi;
-			sourceTree = "<group>";
-		};
 		4A1DEE332E6305910033365C /* NewsApiTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = NewsApiTests;
@@ -61,6 +53,14 @@
 		4A1DEE3D2E6305910033365C /* NewsApiUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = NewsApiUITests;
+			sourceTree = "<group>";
+		};
+		4AF9BE982E8C9CB300DE6C9B /* NewsApi */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4AF9BEE22E8CA05100DE6C9B /* Exceptions for "NewsApi" folder in "NewsApi" target */,
+			);
+			path = NewsApi;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -94,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7393EF2E79541E004C2F21 /* NewsModel.xcdatamodeld */,
-				4A1DEE252E63058E0033365C /* NewsApi */,
+				4AF9BE982E8C9CB300DE6C9B /* NewsApi */,
 				4A1DEE332E6305910033365C /* NewsApiTests */,
 				4A1DEE3D2E6305910033365C /* NewsApiUITests */,
 				4A1DEE242E63058E0033365C /* Products */,
@@ -127,7 +127,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				4A1DEE252E63058E0033365C /* NewsApi */,
+				4AF9BE982E8C9CB300DE6C9B /* NewsApi */,
 			);
 			name = NewsApi;
 			packageProductDependencies = (
@@ -420,12 +420,13 @@
 				DEVELOPMENT_TEAM = 4BB97A86L7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsApi/Info.plist;
+				INFOPLIST_FILE = NewsApi/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,12 +454,13 @@
 				DEVELOPMENT_TEAM = 4BB97A86L7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsApi/Info.plist;
+				INFOPLIST_FILE = NewsApi/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -9,10 +9,11 @@ import UIKit
 import SwiftUI
 import BackgroundTasks
 
-class NewsService {
+class NewsService: NewsFetchingProtocol {
+    
     static let shared = NewsService()
     let endpoint = "https://newsapi.org/v2/top-headlines"
-
+    
     private lazy var apiKey: String = {
         guard let filePath = Bundle.main.path(forResource: "secrets", ofType: "plist"),
               let plist = NSDictionary(contentsOfFile: filePath),
@@ -25,18 +26,29 @@ class NewsService {
     init() {}
     
     func fetchNews() async throws -> [Article] {
-        guard var components = URLComponents(string: endpoint) else { throw URLError(.badURL) }
+        guard var components = URLComponents(string: endpoint) else {
+            throw NewsError.invalidURL
+        }
         components.queryItems = [
             URLQueryItem(name: "country", value: "us"),
             URLQueryItem(name: "apiKey", value: apiKey)
         ]
-        guard let url = components.url else { throw URLError(.badURL) }
+        guard let url = components.url else {
+            throw NewsError.invalidURL
+        }
         
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await URLSession.shared.data(from: url)
         
-        let apiResponse = try JSONDecoder().decode(APIResponse.self, from: data)
-        print("📡 Fetched \(apiResponse.articles.count) articles from network.")
-        return apiResponse.articles
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NewsError.invalidServerResponse
+        }
+        do {
+            let apiResponse = try JSONDecoder().decode(APIResponse.self, from: data)
+            print("📡 Fetched \(apiResponse.articles.count) articles from network.")
+            return apiResponse.articles
+        } catch {
+            throw NewsError.decodingError
+        }
     }
     
 }

@@ -25,7 +25,6 @@ struct UserNotificationManager {
         }
     }
     
-    
     func sendNotification(title: String, message: String, imageAttachmentURL: URL? = nil) {
         let content = UNMutableNotificationContent()
         content.title = title
