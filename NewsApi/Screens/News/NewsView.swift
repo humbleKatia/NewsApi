@@ -24,13 +24,13 @@ struct NewsView: View {
                             }
                             ArticleRowView(article: article)
                         }
-                        .overlay(alignment: .topTrailing) {
-                            HeartButton(article: article)
-                        }
+                        .listRowBackground(Color.clear)
+                        .padding(.vertical, 5)
                         .listRowInsets(.init(top: 0, leading: 10, bottom: 0, trailing: 10))
                         .listRowSeparator(.hidden)
                     }
                 }
+                .scrollContentBackground(.hidden)
                 .listStyle(.plain)
                 .navigationTitle("Latest News")
                 .navigationBarTitleDisplayMode(.inline)

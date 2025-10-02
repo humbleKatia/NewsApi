@@ -19,7 +19,7 @@ struct SavedView: View {
                         if let url = URL(string: article.url) {
                             Link(destination: url) {
                                 EmptyView()
-                            }.opacity(0)
+                            }
                         }
                         ArticleRowView(article: article)
                     }

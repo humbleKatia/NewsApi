@@ -8,32 +8,44 @@
 import SwiftUI
 
 struct ArticleRowView: View {
+    
     let article: Article
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            if let data = article.imageData, let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 200)
-                    .clipped()
-                    .cornerRadius(8)
-            } else {
-                ZStack {
-                    Color(.systemGray5)
-                    Image(systemName: "photo.artframe")
-                        .imageScale(.large)
-                        .foregroundStyle(.gray)
+        GeometryReader { geometry in
+            Group {
+                if let data = article.imageData, let uiImage = UIImage(data: data) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geometry.size.width, height: 200)
+                        .clipped()
+                } else {
+                    ZStack {
+                        Color(.systemGray5)
+                        Image(systemName: "photo.artframe")
+                            .imageScale(.large)
+                            .foregroundStyle(.gray)
+                    }
+                    .frame(width: geometry.size.width, height: 200)
                 }
-                .frame(height: 200)
-                .cornerRadius(8)
             }
-            
-            Text(article.title ?? "No Title")
-                .font(.headline)
-                .lineLimit(3)
+            .overlay(alignment: .bottom) {
+                  VStack(alignment: .leading) {
+                      Text(article.title ?? "No Title")
+                          .font(.headline)
+                          .lineLimit(2)
+                          .foregroundColor(.primary)
+                  }
+                  .padding(10)
+                  .frame(maxWidth: .infinity, alignment: .leading)
+                  .background(.ultraThinMaterial)
+              }
+            .cornerRadius(8)
+            .overlay(alignment: .topTrailing) {
+                HeartButton(article: article)
+            }
         }
-        .padding(.bottom, 8)
+        .frame(height: 200) 
     }
 }
